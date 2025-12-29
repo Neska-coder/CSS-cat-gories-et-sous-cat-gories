@@ -1,0 +1,288 @@
+/* ============================
+   DESIGN UNIVERSEL DES CATÉGORIES FORUMACTIF
+   S'applique automatiquement à toutes les catégories
+   ============================ */
+
+/* Conteneur principal de la catégorie */
+.forumline {
+    background: #f5f5f5;
+    border: none !important;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* En-tête de catégorie avec nom du forum */
+.catHead {
+    background: white !important;
+    padding: 25px 30px !important;
+    border: none !important;
+}
+
+/* Ligne du titre de catégorie */
+.catHead .cattitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Conteneur pour le titre et la description */
+.catHead .cattitle h2 {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 32px;
+    text-transform: uppercase;
+    color: #2d2d2d;
+    margin: 0;
+    letter-spacing: 2px;
+    font-weight: normal;
+}
+
+/* Icône @ à gauche du titre */
+.catHead .cattitle h2::before {
+    content: '@';
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+    background: #5a5a5a;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+/* Masquer l'ancien style */
+.secondarytitle, .gensmall {
+    display: none !important;
+}
+
+/* ============================
+   SOUS-FORUMS HORIZONTAUX
+   ============================ */
+
+/* Conteneur des forums (sous-forums) */
+.forumline tbody tr {
+    display: block;
+}
+
+/* Ligne contenant tous les forums */
+.forumline tbody {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Chaque cellule de forum devient un bloc horizontal */
+.forumline td.row1, 
+.forumline td.row3,
+.forumline td.row3Right {
+    display: block;
+    flex: 1;
+    min-width: 150px;
+    padding: 20px 15px !important;
+    text-align: center;
+    border: none !important;
+    background: transparent !important;
+}
+
+/* Conteneur du lien de forum */
+.forumline .forumlink {
+    display: block;
+    width: 100%;
+}
+
+/* Liens des forums */
+.forumline .forumlink a {
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1px;
+    display: block;
+    padding: 20px 15px;
+    transition: all 0.3s ease;
+}
+
+/* Masquer les éléments inutiles dans les sous-forums */
+.forumline td.row1 .gensmall,
+.forumline td.row3 .gensmall,
+.forumline td.row1 .genmed,
+.forumline td.row3 .genmed,
+.forumline .forum-desc {
+    display: none !important;
+}
+
+/* ============================
+   COULEURS AUTOMATIQUES DES SOUS-FORUMS
+   Utilise une palette qui s'applique cycliquement
+   ============================ */
+
+/* Palette de 12 couleurs qui se répète automatiquement */
+.forumline tbody tr:nth-child(1) td { background: #5a8fa8 !important; }
+.forumline tbody tr:nth-child(2) td { background: #6a9fb5 !important; }
+.forumline tbody tr:nth-child(3) td { background: #8b7355 !important; }
+.forumline tbody tr:nth-child(4) td { background: #b97e6c !important; }
+.forumline tbody tr:nth-child(5) td { background: #6b7fa8 !important; }
+.forumline tbody tr:nth-child(6) td { background: #7b8fa8 !important; }
+.forumline tbody tr:nth-child(7) td { background: #6d5449 !important; }
+.forumline tbody tr:nth-child(8) td { background: #5a7a8f !important; }
+.forumline tbody tr:nth-child(9) td { background: #7a9b6f !important; }
+.forumline tbody tr:nth-child(10) td { background: #a8938a !important; }
+.forumline tbody tr:nth-child(11) td { background: #8a7b6d !important; }
+.forumline tbody tr:nth-child(12) td { background: #6d8a7b !important; }
+
+/* Au-delà de 12, les couleurs recommencent en cycle */
+.forumline tbody tr:nth-child(13) td { background: #5a8fa8 !important; }
+.forumline tbody tr:nth-child(14) td { background: #6a9fb5 !important; }
+.forumline tbody tr:nth-child(15) td { background: #8b7355 !important; }
+
+/* Effet hover sur tous les sous-forums */
+.forumline tbody tr td:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    filter: brightness(1.1);
+    transition: all 0.3s ease;
+}
+
+/* ============================
+   AVATAR DU DERNIER POSTEUR
+   ============================ */
+
+/* Conteneur de l'avatar - ajouté automatiquement */
+.catHead::after {
+    content: '';
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    flex-shrink: 0;
+    margin-left: 20px;
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.catHead {
+    position: relative;
+}
+
+/* ============================
+   SECTION "REMPARTS" OU AUTRE EN BAS
+   ============================ */
+
+/* Dernier forum peut avoir un style spécial s'il est seul sur sa ligne */
+.forumline tbody tr:last-child:only-child td {
+    width: 100%;
+    background: #6d5d52 !important;
+    padding: 18px !important;
+}
+
+.forumline tbody tr:last-child:only-child td a {
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+
+@media screen and (max-width: 768px) {
+    .catHead .cattitle h2 {
+        font-size: 24px;
+    }
+    
+    .catHead .cattitle h2::before {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        margin-right: 15px;
+    }
+    
+    .catHead::after {
+        position: static;
+        transform: none;
+        margin: 20px auto 0;
+    }
+    
+    .forumline tbody {
+        flex-direction: column;
+    }
+    
+    .forumline tbody tr td {
+        min-width: 100%;
+    }
+}
+
+/* ============================
+   AMÉLIORATIONS VISUELLES
+   ============================ */
+
+/* Ombre portée douce sur hover de la catégorie */
+.forumline:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Animation subtile au chargement */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.forumline {
+    animation: fadeInUp 0.5s ease;
+}
+
+/* Masquer les statistiques et derniers messages dans la vue horizontale */
+.forumline .row2,
+.forumline .row3Right {
+    display: none !important;
+}
+
+/* Icônes de statut des forums */
+img[src*="folder"] {
+    display: none !important;
+}
+
+/* ============================
+   VARIANTE : PALETTE DE COULEURS ALTERNATIVE
+   Décommentez cette section si vous préférez d'autres couleurs
+   ============================ */
+
+/*
+.forumline tbody tr:nth-child(1) td { background: #e74c3c !important; }
+.forumline tbody tr:nth-child(2) td { background: #3498db !important; }
+.forumline tbody tr:nth-child(3) td { background: #2ecc71 !important; }
+.forumline tbody tr:nth-child(4) td { background: #f39c12 !important; }
+.forumline tbody tr:nth-child(5) td { background: #9b59b6 !important; }
+.forumline tbody tr:nth-child(6) td { background: #1abc9c !important; }
+.forumline tbody tr:nth-child(7) td { background: #e67e22 !important; }
+.forumline tbody tr:nth-child(8) td { background: #95a5a6 !important; }
+*/
+
+/* ============================
+   PERSONNALISATION FACILE
+   ============================ */
+
+/* Pour changer la palette de couleurs globale, 
+   modifiez uniquement les valeurs ci-dessus.
+   
+   Pour changer l'icône @, modifiez le content dans :
+   .catHead .cattitle h2::before { content: '@'; }
+   
+   Pour changer le dégradé de l'avatar, modifiez :
+   .catHead::after { background: linear-gradient(...); }
+*/
