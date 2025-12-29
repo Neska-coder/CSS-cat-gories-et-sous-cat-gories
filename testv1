@@ -1,22 +1,17 @@
 /* ============================
-   DESIGN CATÉGORIES FORUMACTIF
-   Version compatible avec la structure réelle
+   CSS ADAPTÉ À VOTRE TEMPLATE RÉEL
+   Way of Shinobi - ForumActif
    ============================ */
-
-/* IMPORTANT: Ce CSS fonctionne avec la structure par défaut de ForumActif
-   Il cible les vrais éléments HTML utilisés par votre forum */
 
 /* ============================
-   CONTENEUR PRINCIPAL
+   CONTENEUR DE CATÉGORIE
    ============================ */
 
-/* Table principale des catégories */
 table.forumline {
     background: #f5f5f5 !important;
     border: none !important;
     border-radius: 8px;
     margin-bottom: 20px;
-    overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
@@ -24,25 +19,33 @@ table.forumline {
    EN-TÊTE DE CATÉGORIE
    ============================ */
 
-/* Ligne d'en-tête (titre de la catégorie) */
-.catHead {
+/* Ligne du titre de catégorie */
+.category-header-row {
+    background: white !important;
+}
+
+.category-header-cell {
     background: white !important;
     padding: 20px 30px !important;
     border: none !important;
 }
 
 /* Titre de la catégorie */
-.catHead .cattitle {
+.category-title-span {
+    display: inline-block;
+}
+
+.category-title-link {
     font-family: 'Impact', 'Arial Black', sans-serif !important;
     font-size: 28px !important;
     text-transform: uppercase !important;
     color: #2d2d2d !important;
-    font-weight: normal !important;
     letter-spacing: 2px !important;
+    text-decoration: none !important;
 }
 
-/* Ajouter l'icône @ avant le titre */
-.catHead .cattitle::before {
+/* Icône @ avant le titre */
+.category-title-link::before {
     content: '@';
     display: inline-block;
     width: 45px;
@@ -58,7 +61,7 @@ table.forumline {
 }
 
 /* ============================
-   SOUS-FORUMS EN HORIZONTAL
+   LIGNES DE FORUMS (HORIZONTALES)
    ============================ */
 
 /* Conteneur des lignes de forums */
@@ -68,138 +71,116 @@ table.forumline tbody {
 }
 
 /* Chaque ligne de forum */
-table.forumline tbody tr {
+.forum-row {
     display: flex !important;
     flex: 1 1 auto !important;
     min-width: 150px !important;
+    max-width: 200px !important;
 }
 
-/* Cellules des forums */
-table.forumline tr td.row1,
-table.forumline tr td.row3,
-table.forumline tr td.row2,
-table.forumline tr td.row3Right {
-    flex: 1 !important;
-    min-width: 150px !important;
-    padding: 20px 15px !important;
-    text-align: center !important;
-    border: none !important;
-    color: white !important;
-}
-
-/* Masquer les images d'icônes de forum */
-table.forumline tr td img {
+/* Cellule avec l'icône (on la masque) */
+.forum-icon-cell {
     display: none !important;
 }
 
-/* Liens des forums */
-table.forumline .forumlink a,
-table.forumline a.forumlink {
+/* Cellule avec le contenu du forum */
+.forum-content-cell {
+    flex: 1 !important;
+    padding: 20px 15px !important;
+    text-align: center !important;
+    border: none !important;
+}
+
+/* Cellule lastpost (on la masque dans cette vue) */
+.forum-lastpost-cell {
+    display: none !important;
+}
+
+/* Titre du forum (sous-forum) */
+.forum-title-link {
     color: white !important;
     font-weight: bold !important;
     text-transform: uppercase !important;
     font-size: 11px !important;
     letter-spacing: 1px !important;
     text-decoration: none !important;
+    display: block !important;
 }
 
-/* Masquer les descriptions et stats */
-table.forumline .genmed,
-table.forumline .gensmall {
+/* Masquer la description */
+.forum-content-cell .genmed,
+.forum-content-cell .gensmall {
     display: none !important;
 }
 
 /* ============================
-   COULEURS DES SOUS-FORUMS
-   Palette automatique cyclique
+   COULEURS AUTOMATIQUES
    ============================ */
 
-/* Palette de 12 couleurs */
-table.forumline tbody tr:nth-child(1) td.row1,
-table.forumline tbody tr:nth-child(1) td.row3 {
-    background: #5a8fa8 !important;
-}
-
-table.forumline tbody tr:nth-child(2) td.row1,
-table.forumline tbody tr:nth-child(2) td.row3 {
-    background: #6a9fb5 !important;
-}
-
-table.forumline tbody tr:nth-child(3) td.row1,
-table.forumline tbody tr:nth-child(3) td.row3 {
-    background: #8b7355 !important;
-}
-
-table.forumline tbody tr:nth-child(4) td.row1,
-table.forumline tbody tr:nth-child(4) td.row3 {
-    background: #b97e6c !important;
-}
-
-table.forumline tbody tr:nth-child(5) td.row1,
-table.forumline tbody tr:nth-child(5) td.row3 {
-    background: #6b7fa8 !important;
-}
-
-table.forumline tbody tr:nth-child(6) td.row1,
-table.forumline tbody tr:nth-child(6) td.row3 {
-    background: #7b8fa8 !important;
-}
-
-table.forumline tbody tr:nth-child(7) td.row1,
-table.forumline tbody tr:nth-child(7) td.row3 {
-    background: #6d5449 !important;
-}
-
-table.forumline tbody tr:nth-child(8) td.row1,
-table.forumline tbody tr:nth-child(8) td.row3 {
-    background: #5a7a8f !important;
-}
-
-table.forumline tbody tr:nth-child(9) td.row1,
-table.forumline tbody tr:nth-child(9) td.row3 {
-    background: #7a9b6f !important;
-}
-
-table.forumline tbody tr:nth-child(10) td.row1,
-table.forumline tbody tr:nth-child(10) td.row3 {
-    background: #a8938a !important;
-}
-
-table.forumline tbody tr:nth-child(11) td.row1,
-table.forumline tbody tr:nth-child(11) td.row3 {
-    background: #8a7b6d !important;
-}
-
-table.forumline tbody tr:nth-child(12) td.row1,
-table.forumline tbody tr:nth-child(12) td.row3 {
-    background: #6d8a7b !important;
-}
+/* Palette de 12 couleurs qui se répète */
+.forum-row:nth-child(1) .forum-content-cell { background: #5a8fa8 !important; }
+.forum-row:nth-child(2) .forum-content-cell { background: #6a9fb5 !important; }
+.forum-row:nth-child(3) .forum-content-cell { background: #8b7355 !important; }
+.forum-row:nth-child(4) .forum-content-cell { background: #b97e6c !important; }
+.forum-row:nth-child(5) .forum-content-cell { background: #6b7fa8 !important; }
+.forum-row:nth-child(6) .forum-content-cell { background: #7b8fa8 !important; }
+.forum-row:nth-child(7) .forum-content-cell { background: #6d5449 !important; }
+.forum-row:nth-child(8) .forum-content-cell { background: #5a7a8f !important; }
+.forum-row:nth-child(9) .forum-content-cell { background: #7a9b6f !important; }
+.forum-row:nth-child(10) .forum-content-cell { background: #a8938a !important; }
+.forum-row:nth-child(11) .forum-content-cell { background: #8a7b6d !important; }
+.forum-row:nth-child(12) .forum-content-cell { background: #6d8a7b !important; }
 
 /* Les couleurs recommencent après 12 */
-table.forumline tbody tr:nth-child(13) td.row1,
-table.forumline tbody tr:nth-child(13) td.row3 {
-    background: #5a8fa8 !important;
-}
-
-table.forumline tbody tr:nth-child(14) td.row1,
-table.forumline tbody tr:nth-child(14) td.row3 {
-    background: #6a9fb5 !important;
-}
-
-table.forumline tbody tr:nth-child(15) td.row1,
-table.forumline tbody tr:nth-child(15) td.row3 {
-    background: #8b7355 !important;
-}
+.forum-row:nth-child(13) .forum-content-cell { background: #5a8fa8 !important; }
+.forum-row:nth-child(14) .forum-content-cell { background: #6a9fb5 !important; }
+.forum-row:nth-child(15) .forum-content-cell { background: #8b7355 !important; }
 
 /* ============================
    EFFETS HOVER
    ============================ */
 
-table.forumline tbody tr td:hover {
+.forum-row .forum-content-cell:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     filter: brightness(1.1);
     transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* ============================
+   AVATAR DU DERNIER POSTEUR
+   ============================ */
+
+/* Avatar positionné à droite de la catégorie */
+.category-header-cell {
+    position: relative;
+}
+
+.category-header-cell::after {
+    content: '';
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* ============================
+   MASQUER ÉLÉMENTS INUTILES
+   ============================ */
+
+/* Masquer le titre secondaire */
+.secondarytitle {
+    display: none !important;
+}
+
+/* Masquer les espaces */
+.spaceRow {
+    display: none !important;
 }
 
 /* ============================
@@ -207,11 +188,11 @@ table.forumline tbody tr td:hover {
    ============================ */
 
 @media screen and (max-width: 768px) {
-    .catHead .cattitle {
+    .category-title-link {
         font-size: 20px !important;
     }
     
-    .catHead .cattitle::before {
+    .category-title-link::before {
         width: 35px;
         height: 35px;
         line-height: 35px;
@@ -223,21 +204,23 @@ table.forumline tbody tr td:hover {
         flex-direction: column !important;
     }
     
-    table.forumline tbody tr {
+    .forum-row {
         min-width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .category-header-cell::after {
+        position: static;
+        transform: none;
+        margin: 20px auto 0;
+        display: block;
     }
 }
 
 /* ============================
-   AJUSTEMENTS GÉNÉRAUX
+   ANIMATIONS
    ============================ */
 
-/* Masquer les éléments secondaires */
-.secondarytitle {
-    display: none !important;
-}
-
-/* Animation au chargement */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -258,3 +241,22 @@ table.forumline:hover {
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     transition: box-shadow 0.3s ease;
 }
+
+/* ============================
+   PERSONNALISATION FACILE
+   ============================ */
+
+/* Pour changer une couleur spécifique, modifiez ci-dessus
+   Par exemple pour le 1er sous-forum :
+   .forum-row:nth-child(1) .forum-content-cell { background: #VOTRE_COULEUR !important; }
+*/
+
+/* Pour changer l'icône @ :
+   .category-title-link::before { content: '🔥'; } (ou autre emoji/symbole)
+*/
+
+/* Pour changer le dégradé de l'avatar :
+   .category-header-cell::after { 
+       background: linear-gradient(135deg, #COULEUR1 0%, #COULEUR2 100%); 
+   }
+*/
